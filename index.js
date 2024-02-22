@@ -48,4 +48,8 @@ async function run() {
     core.setOutput("nextTag", nextTag);
 }
 
-run().catch(e => core.setFailed(e.message));
+run().catch((e) => {
+    console.error(e);
+    core.setFailed(e.message);
+
+});

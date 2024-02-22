@@ -30819,7 +30819,7 @@ const github = __nccwpck_require__(2262);
 async function run() {
 
     const date = core.getInput('date');
-    const token = core.getInput('token');
+    const token = core.getInput('github_token');
     const envSlug = core.getInput('env-slug');
     console.log(`Date: ${date}`);
     const context = github.context;
@@ -30863,7 +30863,11 @@ async function run() {
     core.setOutput("nextTag", nextTag);
 }
 
-run().catch(e => core.setFailed(e.message));
+run().catch((e) => {
+    console.error(e);
+    core.setFailed(e.message);
+
+});
 })();
 
 module.exports = __webpack_exports__;
