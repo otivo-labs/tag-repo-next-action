@@ -3,7 +3,13 @@ const github = require('@actions/github');
 
 async function run() {
 
-    const date = core.getInput('date');
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = ("0" + (currentDate.getMonth() + 1)).slice(-2); // Months are 0-indexed in JavaScript
+    const day = ("0" + currentDate.getDate()).slice(-2);
+
+    const date = `${year}-${month}-${day}`;
+
     const token = core.getInput('github_token');
     const envSlug = core.getInput('env-slug');
     console.log(`Date: ${date}`);
