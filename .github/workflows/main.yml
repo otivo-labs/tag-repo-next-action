@@ -1,4 +1,4 @@
-on: [push]
+on: [ push ]
 
 jobs:
   test_tag:
@@ -12,6 +12,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           env-slug: 'test-1'
           date: '2021-08-01'
-  
+
       - name: Get the output time
         run: echo "The time was ${{ steps.tag-me.outputs.nextTag }}"
