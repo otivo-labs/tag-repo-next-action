@@ -1,0 +1,19 @@
+name: 'Tag the repository with next tag'
+description: 'This retrieves the latest tag in the format ${env_slug}-${date}-N where N is increasing per day'
+inputs:
+  github_token:
+    description: 'The token from secrets GITHUB_TOKEN'
+    required: true
+  env-slug:
+    description: 'The environment slug to use'
+    required: true
+  date:
+    description: 'The date in the format YYYY-MM-DD'
+    required: true
+
+outputs:
+  nextTag: # id of output
+    description: 'The resulting tag to use'
+runs:
+  using: 'node20'
+  main: 'index.js'
