@@ -4,7 +4,7 @@ const github = require('@actions/github');
 async function run() {
 
     const date = core.getInput('date');
-    const token = core.getInput('token');
+    const token = core.getInput('github_token');
     const envSlug = core.getInput('env-slug');
     console.log(`Date: ${date}`);
     const context = github.context;
