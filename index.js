@@ -15,7 +15,7 @@ async function run() {
     const allTags = [];
 
     while (hasNextPage) {
-        const {data: tags, headers} = await octokit.rest.repo.listTags({
+        const {data: tags, headers} = await octokit.rest.repos.listTags({
             owner: context.repo.owner,
             repo: context.repo.repo,
             per_page: 100,
