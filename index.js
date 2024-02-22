@@ -32,7 +32,7 @@ async function run() {
     console.log(`All Tags: ${JSON.stringify(allTags, null, 2)}`);
 
     // Get the number of deployments done today (via tag search) and increment count by 1
-    const deploymentCount = allTags.filter(tag => tag.startsWith(`${process.env.ENV_SLUG}-${date}`)).length;
+    const deploymentCount = allTags.filter(tag => tag.startsWith(`${envSlug}-${date}`)).length;
     const nextDeploymentNumber = deploymentCount + 1;
 
     const nextTag = `${envSlug}-${date}-${nextDeploymentNumber}`;
