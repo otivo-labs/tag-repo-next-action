@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  test_tag:
+    runs-on: ubuntu-latest
+    name: A job to test my new action
+    steps:
+      - name: Add the tag
+        id: tag-me
+        uses: otivo-labs/tag-repo-next-action@f0bcf130734ac4aaa9b815b72b258d1daab4e1d2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          env-slug: 'test-1'
+          date: '2021-08-01'
+  
+      - name: Get the output time
+        run: echo "The time was ${{ steps.tag-me.outputs.nextTag }}"
