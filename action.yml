@@ -7,9 +7,6 @@ inputs:
   env-slug:
     description: 'The environment slug to use'
     required: true
-  date:
-    description: 'The date in the format YYYY-MM-DD'
-    required: true
 
 outputs:
   nextTag: # id of output
